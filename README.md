@@ -1,0 +1,2 @@
+# lut-eureka
+eureka-server
