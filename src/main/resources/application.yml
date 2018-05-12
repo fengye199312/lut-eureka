@@ -1,0 +1,24 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: lut-eureka
+eureka:
+  instance:
+    hostname: eureka_server
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    #自我保护模式，当出现出现网络分区、eureka在短时间内丢失过多客户端时，
+    #会进入自我保护模式，即一个服务长时间没有发送心跳，eureka也不会将其删除，默认为true
+    enable-self-preservation: false
+    #客户端的有效负载缓存应该更新的时间间隔，默认为30 * 1000毫秒
+    response-cache-update-interval-ms: 3000
+    #当注册表信息被改变时，则其被保存在缓存中不失效的时间，默认为180秒
+    response-cache-auto-expiration-in-seconds: 180
+    #过期实例应该启动并运行的时间间隔，单位为毫秒，默认为60 * 1000
+    eviction-interval-timer-in-ms: 3000
