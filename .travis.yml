@@ -10,6 +10,6 @@ addons:
 before_install:
 - openssl aes-256-cbc -K $encrypted_691c94e2ecbb_key -iv $encrypted_691c94e2ecbb_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
-  -chmod 600 ~/.ssh/id_rsa
+-chmod 600 ~/.ssh/id_rsa
 after_success:
 - ssh travis@13.229.222.17 -o StrictHostKeyChecking=no './build'   #使用ssh连接服务器
