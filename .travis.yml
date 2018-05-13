@@ -12,4 +12,4 @@ before_install:
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 after_success:
-- ssh travis@13.229.222.17 -o StrictHostKeyChecking=no 'cd /workspace/lut-eureka && git pull && chmod 700 build.sh && ./build.sh '
+- ssh travis@13.229.222.17 -o StrictHostKeyChecking=no 'cd /workspace/lut-eureka && git pull && chmod 700 build.sh && nohup ./build.sh >/dev/null 2>log &'
